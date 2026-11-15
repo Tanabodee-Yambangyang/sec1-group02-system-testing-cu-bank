@@ -1,9 +1,0 @@
-
-# Playwright
-node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
-play_wright\tests\scenario_3.spec_backup.js

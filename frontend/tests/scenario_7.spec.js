@@ -277,7 +277,7 @@ async function logout(page) {
 }
 
 const records = parse(
-  fs.readFileSync(path.join(__dirname, "scenario_input_7.csv")),
+  fs.readFileSync(path.join(__dirname, "..", "data", "scenario_input_7.csv")),
   {
     columns: true,
     skip_empty_lines: true,
