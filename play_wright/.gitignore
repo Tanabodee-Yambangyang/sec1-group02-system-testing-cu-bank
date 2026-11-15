@@ -6,3 +6,4 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+play_wright\tests\scenario_3.spec_backup.js

@@ -38,7 +38,7 @@ test.beforeAll(async ({ browser }) => {
   const record = records.find((r) => r.type == "valid");
   const page = await browser.newPage();
   try {
-    await page.goto(process.env.CU_BANK_URL);
+    await page.goto(process.env.CU_BANK_REGISTER_URL);
     await page.getByRole("textbox", { name: "Account Number:" }).fill(record.accountId);
     await page.getByRole("textbox", { name: "Password:" }).fill(record.password);
     await page.getByRole("textbox", { name: "First Name:" }).fill(record.firstname);
@@ -58,7 +58,7 @@ let test_id = 1;
 for (const record of records) {
   if (record.type == "invalid") {
     test(`Test ${record.test_case_id}`, async ({ page }) => {
-      await page.goto(process.env.CU_BANK_URL);
+      await page.goto(process.env.CU_BANK_REGISTER_URL);
       console.log(
         record.accountId,
         record.password,

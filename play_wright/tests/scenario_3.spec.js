@@ -48,17 +48,19 @@ for (const record of records) {
         message: el.validationMessage,
       }));
 
-      if (!v.valid) {
-        // Native browser validation blocked the submit (e.g. "10.5")
-        // locale-independent check; "abc" is filtered to empty -> valueMissing
-        expect(v.stepMismatch || v.valueMissing || v.badInput).toBe(true);
-        console.log('Native message:', v.message);
-        await expect(errorLabel).toHaveCount(0);  // app never got the request
-      } else {
-        // Browser allowed it, so the app's own validation should respond
-        await expect(errorLabel).toBeVisible();
-        await expect(errorLabel).toHaveText(record.expected_error);
-      }
+      await expect(errorLabel).toBeVisible();
+      await expect(errorLabel).toHaveText(record.expected_error);
+      // if (!v.valid) {
+      //   // Native browser validation blocked the submit (e.g. "10.5")
+      //   // locale-independent check; "abc" is filtered to empty -> valueMissing
+      //   expect(v.stepMismatch || v.valueMissing || v.badInput).toBe(true);
+      //   console.log('Native message:', v.message);
+      //   await expect(errorLabel).toHaveCount(0);  // app never got the request
+      // } else {
+      //   // Browser allowed it, so the app's own validation should respond
+      //   await expect(errorLabel).toBeVisible();
+      //   await expect(errorLabel).toHaveText(record.expected_error);
+      // }
     });
     test_id += 1;
   }
