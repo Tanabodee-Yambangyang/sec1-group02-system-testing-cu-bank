@@ -1,0 +1,2 @@
+test_case_id,test_case_name,sender_account_id,recipient_account_id,sender_password,recipient_password,deposit_amount,transfer_amount,sender_end_balance,recipient_end_balance
+TC8-1,Deposit and transfer to another existing account - Valid amounts - Both account balances and histories updated,1234554321,2222222222,1234,2222,1000,400,600,400
