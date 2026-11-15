@@ -1,4 +1,4 @@
-test_case_id,test_case_name,bill_target,bill_selector,bill_amount,deposit_amount,start_balance,end_balance
-TC7-1,Water bill payment - Valid amount below balance - Balance and history updated,water,b1,500,5000,0,4500
-TC7-2,Electric bill payment - Valid amount below balance - Balance and history updated,electric,b2,1500,0,4500,3000
-TC7-3,Phone bill payment - Valid amount below balance - Balance and history updated,phone,b3,1000,0,3000,2000
+test_case_id,test_case_name,accountId,password,bill_target,bill_selector,bill_amount,deposit_amount,start_balance,end_balance
+TC7-1,Water bill payment - Valid amount below balance - Balance and history updated,1000000001,1234,water,b1,500,5000,0,4500
+TC7-2,Electric bill payment - Valid amount below balance - Balance and history updated,1000000001,1234,electric,b2,1500,0,4500,3000
+TC7-3,Phone bill payment - Valid amount below balance - Balance and history updated,1000000001,1234,phone,b3,1000,0,3000,2000
