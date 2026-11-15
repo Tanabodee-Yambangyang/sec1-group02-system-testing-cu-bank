@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: path.join(__dirname, "..", "config", "config.env") })
 
-const records = parse(fs.readFileSync(path.join(__dirname, "scenario_input_1.csv")), {
+const records = parse(fs.readFileSync(path.join(__dirname, "..", "data", "scenario_input_1.csv")), {
   columns: true,
   skip_empty_lines: true,
 });

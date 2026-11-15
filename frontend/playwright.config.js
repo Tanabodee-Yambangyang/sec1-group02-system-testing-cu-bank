@@ -34,8 +34,10 @@ export default defineConfig({
     screenshot: 'on',            // screenshot for every test (evidence for the report)
     video: 'retain-on-failure',
     trace: 'on-first-retry',
-    headless: false,             // show the browser during the demo
-    launchOptions: { slowMo: 500 }, // slow down so the audience can follow
+    // headless: false,             // show the browser during the demo
+    // launchOptions: { slowMo: 500 }, // slow down so the audience can follow
+    headless: !process.env.HEADED,
+    launchOptions: { slowMo: process.env.HEADED ? 500 : 0 },
   },
 
   /* Configure projects for major browsers */
