@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { uniqueAccountNumber, registerUser, login } from './helpers';
 
-test('TC4: Deposit 1000, Withdraw 5000 -> not enough balance', async ({ page }) => {
+test('TC1: Deposit 1000, Withdraw 5000 -> not enough balance', async ({ page }) => {
   const acc = uniqueAccountNumber();
   await registerUser(page, acc, '1234');
   await login(page, acc, '1234');
