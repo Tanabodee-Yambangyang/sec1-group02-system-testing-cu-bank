@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { uniqueAccountNumber, registerUser, login } from './helpers';
 
-test('TC1: Transfer to a non-numeric target account number', async ({ page }) => {
+test('TC5.1: Transfer to a non-numeric target account number', async ({ page }) => {
     const acc = uniqueAccountNumber();
     await registerUser(page, acc, '1234');
     await login(page, acc, '1234');
@@ -31,7 +31,7 @@ test('TC1: Transfer to a non-numeric target account number', async ({ page }) =>
     await expect(page.getByRole('heading', { name: '500', exact: true })).toBeVisible();
 });
 
-test('TC2: Transfer to an account with incorrect length (Exceed)', async ({ page }) => {
+test('TC5.2: Transfer to an account with incorrect length (Exceed)', async ({ page }) => {
     const acc = uniqueAccountNumber();
     await registerUser(page, acc, '1234');
     await login(page, acc, '1234');
@@ -61,7 +61,7 @@ test('TC2: Transfer to an account with incorrect length (Exceed)', async ({ page
     await expect(page.getByRole('heading', { name: '500', exact: true })).toBeVisible();
 });
 
-test('TC3: Transfer to an account with incorrect length (Under-length)', async ({ page }) => {
+test('TC5.3: Transfer to an account with incorrect length (Under-length)', async ({ page }) => {
     const acc = uniqueAccountNumber();
     await registerUser(page, acc, '1234');
     await login(page, acc, '1234');
@@ -91,7 +91,7 @@ test('TC3: Transfer to an account with incorrect length (Under-length)', async (
     await expect(page.getByRole('heading', { name: '500', exact: true })).toBeVisible();
 });
 
-test('TC4: Transfer to a non-existent Target Account Number', async ({ page }) => {
+test('TC5.4: Transfer to a non-existent Target Account Number', async ({ page }) => {
     const acc = uniqueAccountNumber();
     const nonExistentAcc = uniqueAccountNumber();
 
@@ -123,7 +123,7 @@ test('TC4: Transfer to a non-existent Target Account Number', async ({ page }) =
     await expect(page.getByRole('heading', { name: '500', exact: true })).toBeVisible();
 });
 
-test('TC5: Transfer to an Account Number that is identical to the Source Number', async ({ page }) => {
+test('TC5.5: Transfer to an Account Number that is identical to the Source Number', async ({ page }) => {
     const acc = uniqueAccountNumber();
     await registerUser(page, acc, '1234');
     await login(page, acc, '1234');
