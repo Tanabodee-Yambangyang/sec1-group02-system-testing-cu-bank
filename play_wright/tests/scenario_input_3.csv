@@ -1,0 +1,6 @@
+"test_case_id","amount","type","expected_error"
+"TC_D01","100","valid","none"
+"TC_D02","abc","invalid","Invalid balance amount. Please enter a valid number."
+"TC_D03","10.5","invalid","The balance amount must be a whole number with no decimals."
+"TC_D04","0","invalid","The amount must be greater than 0. Please enter a positive number."
+"TC_D05","-50","invalid","The amount must be greater than 0. Please enter a positive number."

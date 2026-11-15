@@ -1,0 +1,11 @@
+"test_case_id","accountId","password","firstname","lastname","expected_result","type"
+"1","1234567890","1234","Noodle","InCup","เข้าสู่ระบบสำเร็จ","valid"
+"2","a123456789","1234","Google","DotCom","Your account ID should contain numbers only.","invalid"
+"3","123456789","1234","Google","DotCom","Your account ID must be exactly 10 digits long.","invalid"
+"4","12345678900","1234","Google","DotCom","Your account ID must be exactly 10 digits long.","invalid"
+"5","1234567890","1234","Google","DotCom","This account ID is already in use. Please use a different account ID.","invalid"
+"6","9876543210","a123","Google","DotCom","Your password should contain numbers only.","invalid"
+"7","9876543210","123","Google","DotCom","Your password must be exactly 4 digits long.","invalid"
+"8","9876543210","12345","Google","DotCom","Your password must be exactly 4 digits long.","invalid"
+"9","9876543210","1234","Googleashbdbjasbsdjbsajasdsdsdsd","DotCom","The combined length of your first and last name must not exceed 30 characters.","invalid"
+
