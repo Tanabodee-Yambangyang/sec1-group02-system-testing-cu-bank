@@ -6,7 +6,8 @@ CU Bank web application (React front-end, Node.js back-end, MongoDB) with automa
 
 - Node.js (v18 or later) and npm
 - A MongoDB database (MongoDB Atlas or local MongoDB)
-- Google Chrome/Chromium for Playwright (installed in step 4)
+- Ports **3000** (front-end) and **4000** (back-end) free
+- Chromium for Playwright (installed in Terminal 3)
 
 ## Project structure
 
@@ -21,7 +22,7 @@ frontend/    React app (port 3000) and Playwright tests
 
 ## Setup and run
 
-Open three terminals.
+Open three terminals. Start them in order: back-end, front-end, then tests.
 
 ### Terminal 1: Back-end
 
@@ -29,7 +30,7 @@ Open three terminals.
 cd backend
 ```
 
-Create `backend/config.env` by copying the example:
+Create `backend/config/config.env` by copying the example:
 
 ```bash
 # Windows cmd
@@ -38,7 +39,10 @@ copy config\config.env.example config\config.env
 cp config/config.env.example config/config.env
 ```
 
-Edit it so it looks like this:
+Open `config/config.env` and replace the placeholders:
+
+- `MONGO_URI`: your MongoDB connection string (for example an Atlas URI)
+- `JWT_SECRET`: any secret string of your choice
 
 ```
 PORT=4000
@@ -48,6 +52,8 @@ JWT_SECRET=your_secret
 JWT_EXPIRE=30d
 JWT_COOKIE_EXPIRE=30
 ```
+
+Install and start (run `npm install` only the first time):
 
 ```bash
 npm install
@@ -71,7 +77,7 @@ copy config\config.env.example config\config.env
 cp config/config.env.example config/config.env
 ```
 
-Edit it so it looks like this:
+Open `config/config.env` and replace `MONGO_URI` with your connection string:
 
 ```
 MONGO_URI=your_mongodb_connection_string
@@ -83,12 +89,14 @@ CU_BANK_REGISTER_URL=http://localhost:3000/register
 
 > `MONGO_URI` must be the **same connection string the back-end uses**, because some tests check the database directly.
 
+Install and start (run `npm install` only the first time):
+
 ```bash
 npm install
 npm run start
 ```
 
-The app runs at `http://localhost:3000`.
+The app runs at `http://localhost:3000`. If React asks to use another port, stop the process using port 3000 first, because the tests expect 3000.
 
 ### Terminal 3: Run the tests
 
@@ -100,6 +108,8 @@ npx playwright install chromium    # first time only
 npx playwright test
 ```
 
+Run the whole suite in file order on the first run. `scenario_1.spec.js` registers the seed account `1234567890` / `1234`, which other scenarios (for example Scenario 3) depend on.
+
 ## Useful test commands
 
 ```bash
@@ -110,9 +120,10 @@ npx playwright test --ui                            # interactive UI mode
 npx playwright show-report                          # open the HTML report
 ```
 
+The HTML report opens automatically after a failed run. You can reopen it any time with `npx playwright show-report`.
+
 ## Notes
 
-- **Scenarios 7 and 8** need accounts with balance 0 and empty history, so use fresh account numbers (or clear the test accounts) before re-running them.
 - **Expected failures:** some tests fail on purpose to show defects. For example, the Amount fields are number inputs, so for non-numeric or decimal values the browser's native validation appears instead of the specified error message.
 - **Test output:** `test-results/` and `playwright-report/` are generated on each run and are git-ignored.
 
